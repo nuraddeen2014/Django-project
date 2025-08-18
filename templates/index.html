@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Simple Blog Post</title>
+	<style>
+		body {
+			font-family: 'Segoe UI', Arial, sans-serif;
+			background: #f4f6fb;
+			margin: 0;
+			padding: 0;
+		}
+		.container {
+			max-width: 750px;
+			margin: 40px auto;
+			background: #fff;
+			padding: 36px 44px;
+			border-radius: 14px;
+			box-shadow: 0 4px 24px rgba(30, 41, 59, 0.10);
+		}
+		h1 {
+			color: #1a202c;
+			margin-bottom: 18px;
+			font-weight: 700;
+			letter-spacing: 1px;
+			text-align: center;
+		}
+		.post {
+			background: #f8fafc;
+			border-radius: 10px;
+			box-shadow: 0 1px 4px rgba(30, 41, 59, 0.06);
+			padding: 24px 28px;
+			margin-bottom: 28px;
+			transition: box-shadow 0.2s;
+		}
+		.post:hover {
+			box-shadow: 0 6px 24px rgba(30, 41, 59, 0.13);
+		}
+		.meta {
+			color: #64748b;
+			font-size: 0.97em;
+			margin-bottom: 12px;
+		}
+		.content {
+			color: #334155;
+			line-height: 1.7;
+		}
+		.title {
+			color: #2563eb;
+			margin: 0 0 8px 0;
+			font-size: 1.3em;
+			font-weight: 600;
+			transition: color 0.2s;
+		}
+		a .title:hover {
+			color: #1e293b;
+			text-decoration: underline;
+		}
+		a {
+			text-decoration: none;
+		}
+		@media (max-width: 600px) {
+			.container {
+				padding: 16px 4vw;
+			}
+			.post {
+				padding: 16px 8px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Welcome to My Blog!</h1>
+		{% for post in posts reversed %}
+		<div class="post">
+			<div class="meta">By <strong>Author Name</strong> | {{post.time_at}}</div>
+			<div class="content">
+				<a href="/post/{{post.id}}"><h3 class="title">{{post.title}}</h3></a>
+				<p>{{post.body|truncatewords:20}}</p>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+	<style>
+		.new-post-btn {
+			display: inline-block;
+			background: #2563eb;
+			color: #fff;
+			font-size: 1.07em;
+			font-weight: 600;
+			padding: 12px 28px;
+			border: none;
+			border-radius: 8px;
+			box-shadow: 0 2px 8px rgba(30, 41, 59, 0.09);
+			cursor: pointer;
+			transition: background 0.18s, box-shadow 0.18s;
+			margin: 0 auto 32px auto;
+			display: block;
+		}
+		.new-post-btn:hover {
+			background: #1e40af;
+			box-shadow: 0 4px 16px rgba(30, 41, 59, 0.13);
+		}
+	</style>
+	<a href="createpost" style="text-align:center;display:block;">
+		<button class="new-post-btn">New Post +</button>
+	</a>
+</body>
+</html>
