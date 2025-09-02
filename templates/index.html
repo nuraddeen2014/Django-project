@@ -11,6 +11,29 @@
 			margin: 0;
 			padding: 0;
 		}
+		.logout {
+			
+			margin: 20px 0;
+			background: #2563eb;
+			color: #fff;
+			font-size: 1.07em;
+			font-weight: 600;
+			padding: 12px 28px;
+			border: none;
+			border-radius: 8px;
+			box-shadow: 0 2px 8px rgba(30, 41, 59, 0.09);
+			cursor: pointer;
+			transition: background 0.18s, box-shadow 0.18s;
+			margin: 0 auto 32px auto;
+			display: block;
+			text-align: right;
+		
+		}
+
+		.logout:hover {
+			background: #1e40af;
+			box-shadow: 0 4px 16px rgba(30, 41, 59, 0.13);
+		}
 		.container {
 			max-width: 750px;
 			margin: 40px auto;
@@ -69,15 +92,20 @@
 			}
 		}
 	</style>
-</head>
-<body>
 	<div class="container">
 		<h1>Welcome to My Blog!</h1>
+		<a href="{% url 'logout' %}"><button class="logout">Log out</button></a>
+		
+		
+</head>
+
+<body>
+	
 		{% for post in posts reversed %}
 		<div class="post">
 			<div class="meta">By <strong>Author Name</strong> | {{post.time_at}}</div>
 			<div class="content">
-				<a href="/post/{{post.id}}"><h3 class="title">{{post.title}}</h3></a>
+				<a href="{% url 'post' post.id %}"><h3 class="title">{{post.title}}</h3></a>
 				<p>{{post.body|truncatewords:20}}</p>
 			</div>
 		</div>
@@ -104,7 +132,7 @@
 			box-shadow: 0 4px 16px rgba(30, 41, 59, 0.13);
 		}
 	</style>
-	<a href="createpost" style="text-align:center;display:block;">
+	<a href="{% url 'createpost' %}" style="text-align:center;display:block;">
 		<button class="new-post-btn">New Post +</button>
 	</a>
 </body>

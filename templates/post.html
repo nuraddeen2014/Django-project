@@ -8,65 +8,61 @@
     <style>
         body {
             font-family: 'Montserrat', Arial, sans-serif;
-            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            background: #f5f6fa;
             margin: 0;
             padding: 0;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
-        .header {
-            background: rgba(255,255,255,0.95);
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-            padding: 32px 0 16px 0;
+        .navbar {
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            padding: 18px 0;
             text-align: center;
-            border-radius: 0 0 24px 24px;
-            margin-bottom: 40px;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            color: #333;
-            letter-spacing: 2px;
             font-weight: 700;
+            font-size: 1.3rem;
+            color: #2d2d2d;
+            letter-spacing: 1px;
         }
         .container {
-            max-width: 720px;
-            margin: 0 auto 40px auto;
+            max-width: 420px;
+            margin: 40px auto;
             background: #fff;
-            padding: 40px 48px 32px 48px;
-            border-radius: 18px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-            position: relative;
+            padding: 36px 32px 28px 32px;
+            border-radius: 14px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
         }
         .meta {
-            color: #a0a0a0;
-            font-size: 1em;
-            margin-bottom: 28px;
+            color: #888;
+            font-size: 0.98em;
+            margin-bottom: 18px;
             text-align: left;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.2px;
         }
         .title {
-            color: #2d2d2d;
-            font-size: 2.1rem;
+            color: #222;
+            font-size: 1.6rem;
             font-weight: 700;
-            margin-bottom: 18px;
-            letter-spacing: 1px;
+            margin-bottom: 14px;
+            letter-spacing: 0.5px;
             line-height: 1.2;
         }
         .content p {
             color: #444;
-            line-height: 1.8;
-            font-size: 1.13rem;
-            margin: 0 0 18px 0;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            margin: 0 0 14px 0;
         }
-        @media (max-width: 800px) {
-            .container { padding: 24px 10px; }
-            .header { padding: 24px 0 10px 0; }
+        @media (max-width: 600px) {
+            .container { padding: 18px 6px; }
+            .navbar { font-size: 1.1rem; padding: 12px 0; }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Blog Post</h1>
+    <div class="navbar">
+        Blog Post
     </div>
     <div class="container">
         <div class="meta">By <strong>Bella Midadis</strong> | {{posts.time_at}}</div>
